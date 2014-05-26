@@ -9,30 +9,79 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://yandex.st/jquery/2.0.3/jquery.min.js"></script>
 	<script src="http://yandex.st/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet-src.js"></script>
 	<script src="../leaflet.geojsoncss.js"></script>
 	<script>
 	$.ajaxSetup({ dataType: 'json' });
 	</script>
 	<style>
-	html, body, #container {
+	html, body {
 		height: 100%;
 		margin: 0;
-		padding: 0;
+		padding: 10px 0;
+		}
+
+	.column {
+		position: relative;
+		float: left;
+		width: 44%;
+		height: 100%;
+		margin: 0 3%;
+		}
+
+	.header {
+		position: absolute;
+		z-index: 10000;
+		width: 100%;
+		padding: 5px 10px;
+		font: 18px/1.4 "Lucida Console", Monaco, monospace;
+		background-color: rgba(0, 0, 0, 0.751998);
+		color: #FFF;
+		}
+
+	.map {
+		height: 100%;
+		}
+
+	.map .leaflet-tile-pane {
+		-webkit-filter: grayscale(100%);
+		   -moz-filter: grayscale(100%);
+		    -ms-filter: grayscale(100%);
+		     -o-filter: grayscale(100%);
+		        filter: grayscale(100%);
 		}
 	</style>
 </head>
 <body>
-	<div id="container"></div>
+	<div class="column column_one">
+		<header class="header">L.geoJson(json)</header>
+		<div class="map"></div>
+	</div>
+	<div class="column column_two">
+		<header class="header">L.geoJson.css(json)</header>
+		<div class="map"></div>
+	</div>
 	<script>
-	var map = L.map('container').setView([55.75, 37.62], 10);
+	$([0, 1]).each(function(idx) {
+		var container = $('.map').eq(idx).get(0);
+		var map = L.map(container, {
+			center: [55.751998, 37.61775],
+			zoom: 14,
+			zoomControl: false,
+			attributionControl: false
+		});
 
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
+		L.tileLayer('http://t{s}maps.mail.ru/tiles/scheme/{z}/{y}/{x}.png', {
+			subdomains: '0123456789'
+		}).addTo(map);
 
-	$.get('demo.geojson', function(json) {
-		L.geoJson(json).addTo(map);
+		$.get('demo.geojson', function(json) {
+			if ( idx ) {
+				L.geoJson.css(json).addTo(map);
+			} else {
+				L.geoJson(json).addTo(map);
+			}
+		});
 	});
 	</script>
 </body>

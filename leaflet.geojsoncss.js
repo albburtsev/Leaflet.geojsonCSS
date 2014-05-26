@@ -5,11 +5,39 @@
  */
 (function (window, document, undefined) {
 	if ( !window.L || !L.GeoJSON ) {
-		throw new Error('Namespace \'L\' not found');
+		return;
 	}
 
-	L.GeoJSON.addInitHook(function() {
-		// @todo
-		console.log('Hello, GeoJSON CSS!');
+	L.GeoJSON.CSS = L.GeoJSON.extend({
+		initialize: function (geojson, options) {
+			var styledOptions = L.extend({
+				onEachFeature: function(geojson, layer) {
+					if ( options && options.onEachFeature ) {
+						return options.onEachFeature(geojson, layer);
+					}
+
+					var style = geojson.style;
+					if ( style ) {
+						if ( layer instanceof L.Marker && style.icon ) {
+							layer.setIcon(L.icon(style.icon));
+						} else {
+							layer.setStyle(style);
+						}
+					}
+				}
+			}, options);			
+
+			L.setOptions(this, styledOptions);
+
+			this._layers = {};
+
+			if (geojson) {
+				this.addData(geojson);
+			}
+		}
 	});
+
+	L.geoJson.css = function (geojson, options) {
+		return new L.GeoJSON.CSS(geojson, options);
+	};
 })(window, document);
