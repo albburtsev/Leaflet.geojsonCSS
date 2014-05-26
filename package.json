@@ -1,0 +1,35 @@
+{
+  "name": "Leaflet.geojsonCSS",
+  "version": "0.0.0",
+  "description": "Geojson CSS implementation for Leaflet",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albburtsev/Leaflet.geojsonCSS.git"
+  },
+  "keywords": [
+    "leaflet",
+    "leaflet plugin",
+    "geojson",
+    "styling",
+    "svg",
+    "css"
+  ],
+  "author": {
+    "name": "Alexander Burtsev",
+    "url": "https://github.com/albburtsev"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/albburtsev/Leaflet.geojsonCSS/issues"
+  },
+  "homepage": "https://github.com/albburtsev/Leaflet.geojsonCSS",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs-checker": "^0.4.1",
+    "matchdep": "^0.3.0"
+  }
+}

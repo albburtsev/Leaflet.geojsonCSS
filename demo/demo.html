@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Leaflet.geojsonCSS demo</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" href="http://yandex.st/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://yandex.st/jquery/2.0.3/jquery.min.js"></script>
+	<script src="http://yandex.st/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="../leaflet.geojsoncss.js"></script>
+	<script>
+	$.ajaxSetup({ dataType: 'json' });
+	</script>
+	<style>
+	html, body, #container {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+	<script>
+	var map = L.map('container').setView([55.75, 37.62], 10);
+
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+	$.get('demo.geojson', function(json) {
+		L.geoJson(json).addTo(map);
+	});
+	</script>
+</body>
+</html>

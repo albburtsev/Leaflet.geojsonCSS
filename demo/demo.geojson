@@ -1,0 +1,20 @@
+{ 
+	"type": "Feature",
+	"geometry": {
+		"type": "Polygon",
+		"coordinates": [[
+			[37.376875,55.730654],
+			[37.589735,55.911566],
+			[37.841048,55.737628],
+			[37.608961,55.575359]
+		]]
+	},
+	"style": {
+		"fill": "red",
+		"stroke-width": "3",
+		"fill-opacity": 0.6
+	},
+	"className": {
+		"baseVal": "highway_primary"
+	}
+}

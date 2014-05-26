@@ -1,4 +1,4 @@
 Leaflet.geojsonCSS
 ==================
 
-Geojson CSS implementation for Leaflet
+[Geojson CSS](http://wiki.openstreetmap.org/wiki/Geojson_CSS) implementation for Leaflet.
