@@ -13,6 +13,16 @@ Use ```L.GeoJSON.CSS``` or ```L.geoJson.css``` instead of ```L.GeoJSON``` and ``
 L.geoJson.css(json).addTo(map);
 ```
 
+## Install
+
+Download latest release. Use [minified](https://raw.githubusercontent.com/albburtsev/Leaflet.geojsonCSS/master/leaflet.geojsoncss.min.js) or [development](https://raw.githubusercontent.com/albburtsev/Leaflet.geojsonCSS/master/leaflet.geojsoncss.js) version.
+
+Or use bower for install:
+
+```
+bower install Leaflet.geojsonCSS --save
+```
+
 ## Example of GeoJSON with CSS
 
 ```json
