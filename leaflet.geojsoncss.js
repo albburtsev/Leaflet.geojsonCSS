@@ -16,13 +16,19 @@
 						options.onEachFeature(geojson, layer);
 					}
 
-					var style = geojson.style;
+					var style = geojson.style,
+						template = geojson.popupTemplate;
+
 					if ( style ) {
 						if ( layer instanceof L.Marker && style.icon ) {
 							layer.setIcon(L.icon(style.icon));
 						} else {
 							layer.setStyle(style);
 						}
+					}
+
+					if ( template && geojson.properties ) {
+						layer.bindPopup(L.Util.template(template, geojson.properties));
 					}
 				}
 			});

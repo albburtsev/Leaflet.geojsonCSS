@@ -4,7 +4,7 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"title": "Московский Кремль"
+				"title": "Kremlin"
 			},
 			"geometry": {
 				"type": "Polygon",
@@ -30,12 +30,13 @@
 				"fill-opacity": 0.6,
 				"opacity": 1,
 				"dashArray": "3, 5"
-			}
+			},
+			"popupTemplate": "<strong>{title}</strong>"
 		},
 		{
 			"type": "Feature",
 			"properties": {
-				"title": "Кремлевская набережная"
+				"title": "Kremlin embankment"
 			},
 			"geometry": {
 				"type": "MultiLineString",
@@ -45,12 +46,13 @@
 				"color": "#CC0000",
 				"opacity": 1,
 				"weight": 4
-			}
+			},
+			"popupTemplate": "{title}"
 		},
 		{
 			"type": "Feature",
 			"properties": {
-				"title": "метро Александровский Сад"
+				"title": "Alexandrovsiy sad"
 			},
 			"geometry": {
 				"type": "Point",
@@ -62,12 +64,13 @@
 					"iconSize": [32, 32],
 					"iconAnchor": [16, 16]
 				}
-			}
+			},
+			"popupTemplate": "{title}"
 		},
 		{
 			"type": "Feature",
 			"properties": {
-				"title": "метро Охотный Ряд"
+				"title": "Okhotny ryad"
 			},
 			"geometry": {
 				"type": "Point",
@@ -79,12 +82,13 @@
 					"iconSize": [32, 32],
 					"iconAnchor": [16, 16]
 				}
-			}
+			},
+			"popupTemplate": "{title}"
 		},
 		{
 			"type": "Feature",
 			"properties": {
-				"title": "метро Площадь Революции"
+				"title": "Ploschad Revolutsii"
 			},
 			"geometry": {
 				"type": "Point",
@@ -96,7 +100,8 @@
 					"iconSize": [32, 32],
 					"iconAnchor": [16, 16]
 				}
-			}
+			},
+			"popupTemplate": "{title}"
 		}
 	]
 }

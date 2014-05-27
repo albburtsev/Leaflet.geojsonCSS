@@ -102,3 +102,42 @@ For ```LineString``` (```MultiLineString```) and ```Polygon``` (```MultiPolygon`
 	"dashArray": "3, 5"
 }
 ```
+
+## Popup template
+
+In additional to [GeoJSON CSS](http://wiki.openstreetmap.org/wiki/Geojson_CSS) this plugin support templates for [Leaflet.Popup](http://leafletjs.com/reference.html#popup). Use property ```popupTemplate``` in features:
+
+```json
+{
+	"type": "Feature",
+	"properties": {
+		"title": "Kremlin"
+	},
+	"geometry": {
+		"type": "Polygon",
+		"coordinates": [[
+			[37.61489152908325,55.752586015356876],
+			[37.61577129364014,55.7539867694403],
+			[37.616543769836426,55.75506145183324],
+			[37.6177453994751,55.75443355110991],
+			[37.619526386260986,55.753491681072205],
+			[37.62143611907959,55.75252563689488],
+			[37.62117862701416,55.75211506087468],
+			[37.61875391006469,55.750762544596384],
+			[37.61813163757324,55.749989657097],
+			[37.61302471160889,55.749035602973365],
+			[37.612552642822266,55.74907183330299],
+			[37.6134967803955,55.750641781933986],
+			[37.61489152908325,55.752586015356876]
+		]]
+	},
+	"style": {
+		"color": "#CC0000",
+		"weight": 2,
+		"fill-opacity": 0.6,
+		"opacity": 1,
+		"dashArray": "3, 5"
+	},
+	"popupTemplate": "<strong>{title}</strong>"
+}
+```
