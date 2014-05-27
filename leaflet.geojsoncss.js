@@ -13,7 +13,7 @@
 			var styledOptions = L.extend({}, options, {
 				onEachFeature: function(geojson, layer) {
 					if ( options && options.onEachFeature ) {
-						return options.onEachFeature(geojson, layer);
+						options.onEachFeature(geojson, layer);
 					}
 
 					var style = geojson.style;
@@ -25,7 +25,7 @@
 						}
 					}
 				}
-			});			
+			});
 
 			L.setOptions(this, styledOptions);
 
