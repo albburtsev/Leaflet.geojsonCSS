@@ -3,6 +3,8 @@ Leaflet.geojsonCSS
 
 [Geojson CSS](http://wiki.openstreetmap.org/wiki/Geojson_CSS) implementation for Leaflet.
 
+[Live demo](http://albburtsev.github.io/Leaflet.geojsonCSS/src/demo/demo.html)
+
 ![Screenshot](https://rawgithub.com/albburtsev/Leaflet.geojsonCSS/master/demo/screenshot.png)
 
 Use ```L.GeoJSON.CSS``` or ```L.geoJson.css``` instead of ```L.GeoJSON``` and ```L.geoJson```:
