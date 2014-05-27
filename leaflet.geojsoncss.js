@@ -10,7 +10,7 @@
 
 	L.GeoJSON.CSS = L.GeoJSON.extend({
 		initialize: function (geojson, options) {
-			var styledOptions = L.extend({
+			var styledOptions = L.extend({}, options, {
 				onEachFeature: function(geojson, layer) {
 					if ( options && options.onEachFeature ) {
 						return options.onEachFeature(geojson, layer);
@@ -25,7 +25,7 @@
 						}
 					}
 				}
-			}, options);			
+			});			
 
 			L.setOptions(this, styledOptions);
 
