@@ -20,8 +20,10 @@
 						template = geojson.popupTemplate;
 
 					if ( style ) {
-						if ( layer instanceof L.Marker && style.icon ) {
-							layer.setIcon(L.icon(style.icon));
+						if ( layer instanceof L.Marker ) {
+							if ( style.icon ) {
+								layer.setIcon(L.icon(style.icon));
+							}
 						} else {
 							layer.setStyle(style);
 						}
