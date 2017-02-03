@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Leaflet.geojsonCSS.- Vector layer and vector feature style</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" href="http://yandex.st/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="jquery-3.1.1.min.js"></script>	
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet-src.js"></script>
+	<script src="../leaflet.geojsoncss.js"></script>
+	<script>
+	$.ajaxSetup({ dataType: 'json' });
+	</script>
+	<style>
+	html, body {
+		height: 70%;
+		margin: 0;
+		padding: 10px 0;
+		}
+
+	.column {
+		position: relative;
+		float: left;
+		width: 44%;
+		height: 100%;
+		margin: 0 3%;
+		}
+
+	.header {
+		position: absolute;
+		z-index: 10000;
+		width: 100%;
+		padding: 5px 10px;
+		font: 18px/1.4 "Lucida Console", Monaco, monospace;
+		background-color: rgba(0, 0, 0, 0.751998);
+		color: #FFF;
+		}
+
+	.title {				
+		font: 20px/1.4 "Lucida Console", Monaco, monospace;		
+		color: "black";
+		font-weight: bold;
+		text-align: center;
+		}
+
+	.description {				
+		font: 12px/1.4 "Lucida Console", Monaco, monospace;		
+		color: "black";
+		}
+
+	.map {
+		height: 100%;
+		}
+
+	.map .leaflet-tile-pane {
+		-webkit-filter: grayscale(100%);
+		   -moz-filter: grayscale(100%);
+		    -ms-filter: grayscale(100%);
+		     -o-filter: grayscale(100%);
+		        filter: grayscale(100%);
+		}
+	</style>
+</head>
+<body>
+
+<div class="title">
+	<h1>GeoJSON CSS<br>Vector layer and vector feature style</h1>
+</div>
+
+
+	<div class="column column_one">
+		<header class="header">L.geoJson(json)</header>
+		<div class="map"></div>
+	</div>
+	<div class="column column_two">
+		<header class="header">L.geoJson.css(json)</header>
+		<div class="map"></div>
+	</div>
+	<div class="column column_one description">
+		Demostración de carga de un fichero en formato <b>GeoJSON CSS</b> que contiene estilos definidos tanto a nivel de capa como a nivel de feature.
+		<br><br><i>Para generar información geográfica compatible con este formato para <b>Leaflet</b>, puede utilizar la plataforma SIG Web <b>GeoWE</b>. Más información en www.geowe.org. Puedes acceder al SIG on line en map.geowe.org.</i>
+
+		<br><br><hr><p>José María Martínez Luna (@jmmluna_sig)<br><i>http://about.me/jmmluna | https://jmmluna.github.io/<br>jmmluna@gmail.com | jose@geowe.org</i></p>
+	</div>	
+
+	<div class="column column_two">		
+		<img src="JSONViewer.png"/>
+	</div>	
+
+	
+	<script>
+	$([0, 1]).each(function(idx) {
+		var container = $('.map').eq(idx).get(0);
+		var map = L.map(container, {
+			center: [37.46580149640209, -4.7490781775541],		
+			zoom: 7,
+			zoomControl: false,
+			attributionControl: false
+		});
+
+		L.tileLayer('http://t{s}maps.mail.ru/tiles/scheme/{z}/{y}/{x}.png', {
+			subdomains: '0123456789'
+		}).addTo(map);
+
+		$.get('demo.geojson', function(json) {
+			if ( idx ) {
+				L.geoJson.css(json).addTo(map);
+			} else {
+				L.geoJson(json).addTo(map);
+			}
+		});
+	});
+	</script>
+
+
+</body>
+</html>
