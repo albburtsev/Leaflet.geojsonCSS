@@ -96,12 +96,13 @@
 			center: [37.46580149640209, -4.7490781775541],		
 			zoom: 7,
 			zoomControl: false,
-			attributionControl: false
+			attributionControl: true
 		});
 
-		L.tileLayer('http://t{s}maps.mail.ru/tiles/scheme/{z}/{y}/{x}.png', {
-			subdomains: '0123456789'
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+   			 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
+
 
 		$.get('demo.geojson', function(json) {
 			if ( idx ) {
