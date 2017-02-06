@@ -21,7 +21,7 @@ For this reason, I created this version of the plug-in as a complement os the fi
       "type": "Feature",
       "properties": {
         "name": "1",
-        "PROVINCIA": "ALMERIA"
+        "title": "ALMERIA"
       },
       "geometry": {
         "type": "Polygon",
@@ -62,7 +62,7 @@ For this reason, I created this version of the plug-in as a complement os the fi
       "type": "Feature",
       "properties": {
         "name": "2",
-        "PROVINCIA": "CADIZ"
+        "title": "CADIZ"
       },
       "geometry": {
         "type": "Polygon",
