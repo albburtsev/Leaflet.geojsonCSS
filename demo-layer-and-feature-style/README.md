@@ -4,6 +4,13 @@ This example shows the load of a GeoJSON CSS file that contains layer-level and 
 
 ![Screenshot](https://github.com/jmmluna/Leaflet.geojsonCSS/blob/master/demo-layer-and-feature-style/screenshot.png)
 
+## Description
+
+When setting feature-level style only, we can find different stages where all or most features share the same style. In this context, we have to define this style for each feature, causing data duplicity and redundancy, so layer file size gets bigger.
+
+For this reason, I created this version of the plug-in as a complement os the first version. In this, you can set layer-level style, so you can assign one single style to all features using just a style declaration. However, you can still define feature-level style if you need it. Therefore, this plug-in provides flexibility and avoids style data redundancy.
+
+
 ## Example of GeoJSON with CSS
 
 ```json
