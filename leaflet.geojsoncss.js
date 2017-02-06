@@ -11,13 +11,22 @@
 	}
 
 	function getStyleDescription(style) {
-			var desc = "<b>fillColor:</b> " + style.fillColor + "<br>" +
-					   "<b>fillOpacity:</b> " + style["fill-Opacity"] + "<br>" +
-					   "<b>weight:</b> " + style.weight + "<br>" +	
-					   "<b>color:</b> " + style.color + "<br>" +
-					   "<b>opacity:</b> " + style.opacity;	
+			
+			var desc = getAttributeValue(style, "fillColor") + 
+					   getAttributeValue(style, "fill-Opacity") + 
+					   getAttributeValue(style, "weight") + 
+					   getAttributeValue(style, "color") + 
+					   getAttributeValue(style, "opacity"); 
 			return	desc;	   	
 
+	}
+
+	function getAttributeValue(style, attributeName) {
+		var value = "";
+		if(style[attributeName]) {
+			value = "<b>" + attributeName + ":</b> " + style[attributeName] + "<br>";
+		}
+		return value;
 	}
 
 	L.GeoJSON.CSS = L.GeoJSON.extend({
@@ -29,7 +38,7 @@
 			var styledOptions = L.extend({}, options, {
 				onEachFeature: function(feature, layer) {
    					
-					var featureHeader = "<h3>" + feature.properties.PROVINCIA + "</h3><hr>";
+					var featureHeader = "<h3>" + feature.properties.title + "</h3><hr>";
                     if(feature.style) {
 
                     	if ( layer instanceof L.Marker ) {
