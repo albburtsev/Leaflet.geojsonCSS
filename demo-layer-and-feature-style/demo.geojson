@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "name": "1",
-        "PROVINCIA": "ALMERIA"
+        "title": "ALMERIA"
       },
       "geometry": {
         "type": "Polygon",
@@ -599,7 +599,7 @@
       "type": "Feature",
       "properties": {
         "name": "2",
-        "PROVINCIA": "CADIZ"
+        "title": "CADIZ"
       },
       "geometry": {
         "type": "Polygon",
@@ -1357,7 +1357,7 @@
       "type": "Feature",
       "properties": {
         "name": "3",
-        "PROVINCIA": "CORDOBA"
+        "title": "CORDOBA"
       },
       "geometry": {
         "type": "Polygon",
@@ -2511,7 +2511,7 @@
       "type": "Feature",
       "properties": {
         "name": "4",
-        "PROVINCIA": "GRANADA"
+        "title": "GRANADA"
       },
       "geometry": {
         "type": "Polygon",
@@ -3285,7 +3285,7 @@
       "type": "Feature",
       "properties": {
         "name": "5",
-        "PROVINCIA": "HUELVA"
+        "title": "HUELVA"
       },
       "geometry": {
         "type": "Polygon",
@@ -4183,7 +4183,7 @@
       "type": "Feature",
       "properties": {
         "name": "6",
-        "PROVINCIA": "JAEN"
+        "title": "JAEN"
       },
       "geometry": {
         "type": "Polygon",
@@ -4945,7 +4945,7 @@
       "type": "Feature",
       "properties": {
         "name": "7",
-        "PROVINCIA": "MALAGA"
+        "title": "MALAGA"
       },
       "geometry": {
         "type": "Polygon",
@@ -5651,7 +5651,7 @@
       "type": "Feature",
       "properties": {
         "name": "8",
-        "PROVINCIA": "SEVILLA"
+        "title": "SEVILLA"
       },
       "geometry": {
         "type": "Polygon",
