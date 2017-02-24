@@ -5,6 +5,8 @@ Leaflet.geojsonCSS
 
 [Live demo](http://albburtsev.github.io/Leaflet.geojsonCSS/src/demo/demo.html)
 
+[Layer and feature style live demo](https://jmmluna.github.io/Leaflet.geojsonCSS/demo.html)
+
 ![Screenshot](https://rawgithub.com/albburtsev/Leaflet.geojsonCSS/master/demo/screenshot.png)
 
 Use ```L.GeoJSON.CSS``` or ```L.geoJson.css``` instead of ```L.GeoJSON``` and ```L.geoJson```:
@@ -15,7 +17,7 @@ L.geoJson.css(json).addTo(map);
 
 ## Install
 
-Download latest release. Use [minified](https://raw.githubusercontent.com/albburtsev/Leaflet.geojsonCSS/master/leaflet.geojsoncss.min.js) or [development](https://raw.githubusercontent.com/albburtsev/Leaflet.geojsonCSS/master/leaflet.geojsoncss.js) version.
+Download latest release. Use [minified](https://raw.githubusercontent.com/jmmluna/Leaflet.geojsonCSS/master/leaflet.geojsoncss.min.js) or [development](https://raw.githubusercontent.com/jmmluna/Leaflet.geojsonCSS/master/leaflet.geojsoncss.js) version.
 
 Or use bower for install:
 
