@@ -53,7 +53,7 @@ For this reason, I created this version of the plug-in as a complement os the fi
         "color": "#CC0000",
         "weight": 2,
         "fillColor": "red",
-        "fill-Opacity": 0.6,
+        "fillOpacity": 0.6,
         "opacity": 1,
         "dashArray": "3, 5"
       }
@@ -107,7 +107,7 @@ For this reason, I created this version of the plug-in as a complement os the fi
   "style": {
     "fill": true,
     "fillColor": "#006400",
-    "fill-Opacity": 0.5,
+    "fillOpacity": 0.5,
     "weight": 15,
     "color": "#FFFACD",
     "opacity": 1
