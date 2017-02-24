@@ -92,9 +92,7 @@
 	<script>
 	$([0, 1]).each(function(idx) {
 		var container = $('.map').eq(idx).get(0);
-		var map = L.map(container, {
-			center: [37.46580149640209, -4.7490781775541],		
-			zoom: 7,
+		var map = L.map(container, {			
 			zoomControl: false,
 			attributionControl: true
 		});
@@ -102,16 +100,27 @@
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
    			 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
-
-
-		$.get('demo.geojson', function(json) {
-			if ( idx ) {
-				L.geoJson.css(json).addTo(map);
-			} else {
-				L.geoJson(json).addTo(map);
-			}
-		});
+		
+		loadLayer(idx, 'demo-point.geojson', map) ;
+		loadLayer(idx, 'demo.geojson', map) ;
+		
 	});
+
+	function loadLayer(idx, fileName, map) {
+		$.get(fileName, function(json) {
+			
+			var layer;
+			if ( idx ) {
+				layer = L.geoJson.css(json).addTo(map);
+			} else {
+				layer = L.geoJson(json).addTo(map);
+			}
+
+			map.fitBounds(layer)
+			
+		});
+	}
+
 	</script>
 
 
