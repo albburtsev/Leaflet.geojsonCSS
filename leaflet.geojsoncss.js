@@ -10,23 +10,61 @@
 		return;
 	}
 
-	function getStyleDescription(style) {
-			
-			var desc = getAttributeValue(style, "fillColor") + 
-					   getAttributeValue(style, "fill-Opacity") + 
-					   getAttributeValue(style, "weight") + 
-					   getAttributeValue(style, "color") + 
-					   getAttributeValue(style, "opacity"); 
-			return	desc;	   	
+	function setPopPup(feature, json) {
+		
+		feature.on('click', function (e) {				
+			feature.bindPopup(getContent(json));		
+			this.openPopup();
+		});
+
+		if ( !(feature instanceof L.Marker) ) {
+			feature.on('mouseover', function (e) {
+				var highlight = {
+					color: '#2262CC',
+		        	weight: 3,		                   
+		        	fillColor: '#2262CC'
+				};
+
+				feature.setStyle(highlight);			           
+			});
+		}
 
 	}
 
-	function getAttributeValue(style, attributeName) {
-		var value = "";
-		if(style[attributeName]) {
-			value = "<b>" + attributeName + ":</b> " + style[attributeName] + "<br>";
+	function getContent(feature) {
+		var popupContent = '<table>';
+		for (var p in feature.properties) {
+			popupContent += '<tr><td><b>' + p + ':</b></td><td>'+ feature.properties[p] + '</td></tr>';
 		}
-		return value;
+		
+		popupContent += '</table>';
+		return 	popupContent;			
+	}
+
+
+	function getLayerMarkerStyle(style, latlng) {
+		if ( style.icon ) {
+			var smallIcon = new L.Icon({
+				iconSize: style.icon.iconSize,
+     			iconAnchor: style.icon.iconAnchor,
+     			popupAnchor:  style.icon.popupAnchor,							    
+				iconUrl:  style.icon.iconUrl
+			});
+
+			return new L.Marker(latlng,{icon: smallIcon});
+		}
+
+		return new L.CircleMarker(latlng, style);	
+	}
+
+	function setStyle(feature, style) {
+		if ( !(feature instanceof L.Marker) ) {                    		
+			feature.setStyle(style);
+
+			feature.on('mouseout', function (e) {							
+				           feature.setStyle(style);
+				        });							
+		}
 	}
 
 	L.GeoJSON.CSS = L.GeoJSON.extend({
@@ -36,34 +74,34 @@
 
 
 			var styledOptions = L.extend({}, options, {
-				onEachFeature: function(feature, layer) {
-   					
-					var featureHeader = "<h3>" + feature.properties.title + "</h3><hr>";
-                    if(feature.style) {
 
-                    	if ( layer instanceof L.Marker ) {
-							if ( feature.style.icon ) {
-								layer.setIcon(L.icon(feature.style.icon));
-							}
-						}
-						else {
-							layer.setStyle(feature.style);
-						}
-						
-						layer.bindPopup(featureHeader + "<br>" + getStyleDescription(feature.style));
+				 pointToLayer: function (feature, latlng) {   
+				 	var featureStyle = feature.style;
+
+                    if ( featureStyle ) {							
+						return getLayerMarkerStyle(featureStyle, latlng);													
+		            }		            
+		            else if(layerStyle) {
+		            	return  getLayerMarkerStyle(layerStyle, latlng);		            	
+		        	}
+		        	else {
+		        		//default point layer
+		        		return new L.Marker(latlng, {});
+		        	}
+		            
+		          },
+
+				onEachFeature: function(json, feature) {
+   										
+                    if(json.style) {                    	
+                    	setStyle(feature, json.style);																		
 					}
-					else {
-						layer.setStyle(layerStyle);
-						layer.bindPopup(featureHeader + "<br>" + getStyleDescription(layerStyle));
-					}						
+					else if(layerStyle) {							
+						setStyle(feature, layerStyle);				
+					}		
 
-					layer.on('mouseover', function (e) {
-			            this.openPopup();
-			        });
-			        layer.on('mouseout', function (e) {
-			            this.closePopup();
-			        });
-
+					setPopPup(feature, json);
+					
 				}
 			});
 
