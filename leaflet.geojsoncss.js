@@ -4,7 +4,7 @@
  * @license MIT
  */
 (function (window, document, undefined) {
-	if ( !window.L || !L.GeoJSON ) {
+	if ( typeof L === 'undefined' || !L.GeoJSON ) {
 		return;
 	}
 
