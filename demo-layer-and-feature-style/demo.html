@@ -118,7 +118,7 @@
 				layer = L.geoJson(json).addTo(map);
 			}
 
-			map.fitBounds(layer)
+			map.fitBounds(layer.getBounds());
 			
 		});
 	}
