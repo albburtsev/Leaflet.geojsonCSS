@@ -3,7 +3,7 @@ Leaflet.geojsonCSS
 
 [Geojson CSS](http://wiki.openstreetmap.org/wiki/Geojson_CSS) implementation for Leaflet.
 
-[Layer and feature style live demo](https://jmmluna.github.io/Leaflet.geojsonCSS/demo-layer-and-feature-style/demo.html)
+[Layer and feature style live demo](https://jmmluna.github.io/Leaflet.geojsonCSS/demo-layer-and-feature-style/demo.html). ***Updated to Leaflet 1.3.1***
 
 ![Screenshot](https://github.com/jmmluna/Leaflet.geojsonCSS/blob/master/demo-layer-and-feature-style/screenshot.png)
 
