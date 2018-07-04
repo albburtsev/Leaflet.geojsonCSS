@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 			'/**\n' +
 			' * Leaflet.geojsonCSS\n' +
 			' * @author Alexander Burtsev, http://burtsev.me, <%= grunt.template.today("yyyy") %>\n' +
+			' * @author José María Martínez, jmmluna@gmail.com, http://about.me/jmmluna, 2017, <%= grunt.template.today("yyyy") %>\n' +
 			' * @license MIT\n' +
 			' */\n',
 

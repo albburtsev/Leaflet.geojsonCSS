@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/albburtsev/Leaflet.geojsonCSS.git"
+    "url": "https://github.com/jmmluna/Leaflet.geojsonCSS.git"
   },
   "keywords": [
     "leaflet",
@@ -19,11 +19,15 @@
     "name": "Alexander Burtsev",
     "url": "https://github.com/albburtsev"
   },
+  "author": {
+    "name": "José María Martínez",
+    "url": "https://github.com/jmmluna"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/albburtsev/Leaflet.geojsonCSS/issues"
+    "url": "https://github.com/jmmluna/Leaflet.geojsonCSS/issues"
   },
-  "homepage": "https://github.com/albburtsev/Leaflet.geojsonCSS",
+  "homepage": "https://github.com/jmmluna/Leaflet.geojsonCSS",
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-contrib-jshint": "^0.10.0",
